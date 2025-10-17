@@ -1,0 +1,11 @@
+protected_files:
+  -.github/**/*
+  -.github/workflows/*
+  -.github/*
+  -Makefile
+  -include/bf.h
+  -include/record.h
+  -include/hp_file_funcs.h
+  -src/record.c
+  -examples/bf_main.c
+  -examples/hp_main.c
