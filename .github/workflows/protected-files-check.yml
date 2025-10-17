@@ -1,0 +1,16 @@
+name: Protected Files Check
+
+on: [push, pull_request]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Detect changes to protected files
+        run: |
+          git fetch origin main
+          MODIFIED=$(git diff --name-only origin/main...HEAD)
+          echo "$MODIFIED" | grep -E '(^tests/|^\.github/workflows/|requirements\.txt)' && \
+            echo "❌ Protected files modified!" && exit 1 || \
+            echo "✅ No protected files modified."
