@@ -52,18 +52,6 @@ int HeapFile_Close(int file_handle, HeapFileHeader* header_info);
 int HeapFile_InsertRecord(int file_handle, HeapFileHeader* header_info, Record record);
 
 /**
- * @brief Scans and prints all records matching a specific ID
- *
- * @param file_handle Handle of the heap file to scan
- * @param header_info Pointer to heap file metadata
- * @param heap_iterator Iterator for traversing the file
- * @param id Record ID to search for
- * @return 1 on success, 0 on failure
- */
-int HeapFile_PrintRecords(int file_handle, HeapFileHeader* header_info,
-                          HeapFileIterator* heap_iterator, int id);
-
-/**
  * @brief Retrieves the next matching record using an iterator
  *
  * @param heap_iterator Initialized iterator for record traversal
